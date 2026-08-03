@@ -1,0 +1,8 @@
+{
+  "name": "generador-invitaciones",
+  "version": "1.0.0",
+  "main": "api/generar.js",
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.44"
+  }
+}

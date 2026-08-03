@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Generador de Invitaciones</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="card">
+    <h2>Genera tu Invitación</h2>
+    <input type="text" id="nombreInput" placeholder="Escribe el nombre aquí..." value="Marypaz">
+    <button onclick="generar()">Generar Invitación</button>
+    <br><br>
+    <a id="downloadBtn" style="display:none;" download="invitacion.png">
+      <button class="btn-download">Descargar PNG</button>
+    </a>
+  </div>
+
+  <div class="preview-container">
+    <img id="resultado" src="" alt="Vista previa" style="display:none;">
+  </div>
+
+  <script>
+    function generar() {
+      const nombre = document.getElementById('nombreInput').value;
+      const img = document.getElementById('resultado');
+      const downloadBtn = document.getElementById('downloadBtn');
+      
+      const url = `/api/generar?nombre=${encodeURIComponent(nombre)}`;
+      
+      img.src = url;
+      img.style.display = 'block';
+      
+      downloadBtn.href = url;
+      downloadBtn.style.display = 'inline-block';
+    }
+  </script>
+</body>
+</html>
